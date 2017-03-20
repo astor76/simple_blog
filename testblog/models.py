@@ -11,4 +11,13 @@ class Post(models.Model):
     def get_absolute_url(self):
         return "/blog/%i" % self.id
 
+
+class Comment(models.Model):
+    name = models.CharField(max_length=255)  # имя комментатора указывается при создании поста
+    datetime = models.DateTimeField(u'Дата комментирования')  # дата комментирования
+    content = models.TextField(max_length=1000)  # текст комментария
+
+
+class Tag(models.Model):
+    tagname = models.CharField(max_length=255)  # название тега
 # Create your models here.
