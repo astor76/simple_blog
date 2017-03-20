@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Post(models.Model):
     title = models.CharField(max_length=255)  # заголовок поста
     datetime = models.DateTimeField(u'Дата публикации')  # дата публикации
@@ -20,4 +21,6 @@ class Comment(models.Model):
 
 class Tag(models.Model):
     tagname = models.CharField(max_length=255)  # название тега
+
+
 # Create your models here.
