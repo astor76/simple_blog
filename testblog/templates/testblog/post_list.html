@@ -1,10 +1,19 @@
-{% block content %}
-    {% for post in post_list %}
-        <p>{{ post.datetime }}</p>
-        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-        <p>{{ post.content }}</p>
-    {% empty %}
-    <p>Нет постов</p>
-    {% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% block content %}
+        {% for post in post_list %}
+            <p>{{ post.datetime }}</p>
+            <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+            <p>{{ post.content }}</p>
+        {% empty %}
+        <p>Нет постов</p>
+        {% endfor %}
+    {% endblock %}
+</head>
+<body>
 
-{% endblock %}
+</body>
+</html>

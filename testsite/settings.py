@@ -26,8 +26,13 @@ SECRET_KEY = '7(@-1&d_n+1s2+#-adr+7*--&lo=rgga6dhtkjpz@btjbndo$p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ADMINS = (
+    ('admin', 'adminz@mail.ru'),
+)
+
 ALLOWED_HOSTS = []
 
+SITE_ID = 3
 
 # Application definition
 
