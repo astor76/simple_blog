@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {% block content %}
-        <p>{{ post.datetime }}</p>
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.content }}</p>
-
-    {% endblock %}
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'testblog/base.html' %}
+{% block content %}
+    <p>{{ post.datetime }}</p>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+{% endblock %}
