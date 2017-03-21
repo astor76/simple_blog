@@ -3,10 +3,15 @@ from django.db import models
 
 class Post(models.Model):
     title = models.CharField(max_length=255)  # заголовок поста
-    datetime = models.DateTimeField(u'Дата публикации')  # дата публикации
+    datetime = models.DateTimeField(verbose_name='Дата публикации')  # дата публикации
     content = models.TextField(max_length=10000)  # текст поста
 
-    def __unicode__(self):
+# Python 2    
+#    def __unicode__(self):
+#        return self.title
+
+# Python 3
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
@@ -15,7 +20,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     name = models.CharField(max_length=255)  # имя комментатора указывается при создании поста
-    datetime = models.DateTimeField(u'Дата комментирования')  # дата комментирования
+    datetime = models.DateTimeField(verbose_name='Дата комментирования')  # дата комментирования
     content = models.TextField(max_length=1000)  # текст комментария
 
 
