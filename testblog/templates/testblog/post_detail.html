@@ -2,10 +2,13 @@
 {% block content %}
     <p>{{ post.datetime }}</p>
     <h2>{{ post.title }}</h2>
+    <p>{{ post.boundedtag }}</p>
     <p>{{ post.content }}</p>
     <p>
-        {% load disqus_tags %}
-        {% disqus_dev %}
-        {% disqus_show_comments %}
+        {% for comment in comment_list %}
+            <p>{{ comment.name }}</p>
+            <p>{{ comment.datetime }}</p>
+            <p>{{ comment.content }}</p>
+        {% endfor %}
     </p>
 {% endblock %}

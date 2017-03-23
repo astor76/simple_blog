@@ -7,10 +7,6 @@ class Tag(models.Model):
     def __str__(self):  # возвращает строковое представление объекта
         return self.tagname
 
-    # def get_bounded_posts(self):
-    #     bounded_posts = Post.objects.filter(tagpost=self)
-    #     # так вообще можно делать? нужно вернуть коллекцию постов
-    #     return bounded_posts
 
 
 class Post(models.Model):
@@ -24,11 +20,6 @@ class Post(models.Model):
 
     def get_absolute_url(self):  # возвращает строку, которую можно использовать в HTTP запросе
         return "/blog/%i" % self.id
-
-    # def get_bounded_comments(self):  # получить все связанные с постом комменты
-    #     bounded_comments = Comment.objects.filter(boundpost=self)
-    #     # так вообще можно делать? нужно вернуть коллекцию комментариев
-    #     return bounded_comments
 
 
 class Comment(models.Model):
