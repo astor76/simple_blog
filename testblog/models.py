@@ -17,13 +17,13 @@ class Post(models.Model):
     title = models.CharField(verbose_name='Заголовок поста', max_length=255)  # заголовок поста
     datetime = models.DateTimeField(verbose_name='Дата публикации', auto_now=True)  # дата публикации
     content = models.TextField(verbose_name='Содержание поста', max_length=10000)  # текст поста
-    boundedtag = models.ForeignKey(Tag, to_field=Tag.tagname)  # связанный тег поста, связь много-к-одному
+    boundedtag = models.ForeignKey(Tag, blank=True, null=True)  # связанный тег поста, связь много-к-одному
 
     def __str__(self):  # возвращает строковое представление объекта
         return self.title
 
     def get_absolute_url(self):  # возвращает строку, которую можно использовать в HTTP запросе
-        return "/blog/%i" % self.id
+        return "/blog/post/%i" % self.id
 
     # def get_bounded_comments(self):  # получить все связанные с постом комменты
     #     bounded_comments = Comment.objects.filter(boundpost=self)
@@ -35,7 +35,7 @@ class Comment(models.Model):
     name = models.CharField(verbose_name='Имя коментирующего', max_length=255)  # имя комментатора
     datetime = models.DateTimeField(verbose_name='Дата комментирования', auto_now=True)  # дата комментирования
     content = models.TextField(verbose_name='Содержание комментария', max_length=1000)  # текст комментария
-    boundedpost = models.ForeignKey(Post, to_field=id(Post))  # связанный тег поста, связь много-к-одному
+    boundedpost = models.ForeignKey(Post)  # связанный тег поста, связь много-к-одному
 
 # Create your models here.
 

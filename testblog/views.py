@@ -27,6 +27,7 @@ def search_tag(request):
         'title': 'Поиск постов',
 
     }
+
 class PostsListView(ListView):
     model = Post
 
