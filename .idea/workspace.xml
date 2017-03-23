@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aeb15ae7-9853-4cca-b743-1ff0140166ca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testblog/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testblog/migrations/0002_remove_post_boundedtag.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testblog/templates/testblog/add_post.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testblog/templates/testblog/search_result.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testblog/admin.py" afterPath="$PROJECT_DIR$/testblog/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testblog/models.py" afterPath="$PROJECT_DIR$/testblog/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testblog/templates/testblog/base.html" afterPath="$PROJECT_DIR$/testblog/templates/testblog/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testblog/templates/testblog/post_detail.html" afterPath="$PROJECT_DIR$/testblog/templates/testblog/post_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testblog/templates/testblog/post_list.html" afterPath="$PROJECT_DIR$/testblog/templates/testblog/post_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testblog/templates/testblog/search_form.html" afterPath="$PROJECT_DIR$/testblog/templates/testblog/search_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testblog/urls.py" afterPath="$PROJECT_DIR$/testblog/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testblog/views.py" afterPath="$PROJECT_DIR$/testblog/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testsite/urls.py" afterPath="$PROJECT_DIR$/testsite/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -638,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490253069817</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="переработаны все шаблоны, представления и url-правила">
+      <created>1490272028686</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1490272028686</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -700,7 +693,8 @@
     <MESSAGE value="доравлены связи между моделями" />
     <MESSAGE value="добавленны ссылки на страницу поиска и страницу добавления поста" />
     <MESSAGE value="добавлен файл requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавлен файл requirements.txt" />
+    <MESSAGE value="переработаны все шаблоны, представления и url-правила" />
+    <option name="LAST_COMMIT_MESSAGE" value="переработаны все шаблоны, представления и url-правила" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
