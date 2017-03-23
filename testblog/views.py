@@ -15,11 +15,18 @@ def post_list(request):
         'title': 'Список постов',
         'posts': Post.objects.all(),
     }
-    return render(request, '<путь к шаблону>',  ctx)
+    return render(request, './testblog/post_list.html',  ctx)
 # Останется задать данному представлению url правило и готово!
 # https://docs.djangoproject.com/en/1.10/intro/tutorial03/#a-shortcut-render
 
+def search_tag(request):
+    """
+    Поиск по тегу
+    """
+    ctx = {
+        'title': 'Поиск постов',
 
+    }
 class PostsListView(ListView):
     model = Post
 
