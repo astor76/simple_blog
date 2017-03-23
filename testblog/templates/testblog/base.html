@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <title>Мой блог</title>
+        <title> Мой блог </title>
         <link href="{{STATIC_URL}}bootstrap/css/bootstrap.css" rel="stylesheet">
         <style>
             body {
@@ -14,17 +14,13 @@
         <script src="{{STATIC_URL}}bootstrap/js/bootstrap.js" type="text/javascript"></script>
     </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <div class="brand">My Blog</div>
-            <ul class="nav">
-                <li><a href="{% url 'list' %}" >Список постов</a></li>
-                <li><a href="{% url 'addpost' %}" >Добавить пост</a></li> <!-- добавить ссылку на страницу добавления поста -->
-                <li><a href="{% url 'searchform' %}">Поиск по тегам</a></li> <!-- добавить ссылку на страницу поиска -->
-            </ul>
-        </div>
-    </div>
+<div class="container">
+    <div class="brand"> Мой блог </div>
+    <ul class="nav">
+        <li><a href="{% url 'list' %}" >Список постов</a></li>
+        <li><a href="{% url 'addpost' %}" >Добавить пост</a></li>
+        <li><a href="{% url 'searchform' %}">Поиск по тегам</a></li>
+    </ul>
 </div>
 <div class="container">
     {% block content %}

@@ -1,0 +1,26 @@
+{% extends 'testblog/base.html' %}
+
+{% block content %}
+    <form action="/act/" method="get">
+        <input type="text" name="title" maxlength="255" value="Пример названия" pattern="[\w ]+">
+        <input type="text" name="content" value="Текст поста должен быть здесь" pattern="[\w ]+">
+        <!-- <input type="text" name="boundedtag" value="Укажите тег" > --->
+
+        <input type="submit" value="AddNewPost">
+    </form>
+
+
+    {% for post in post_list %}
+        <p>{{ post.datetime }}</p>
+        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+        <p>{{ post.content }}</p>
+
+        {% empty %}
+    {% endfor %}
+{% endblock %}
+
+
+
+<!-- from blog.models import Blog
+b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
+b.save() --->

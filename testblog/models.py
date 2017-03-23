@@ -2,18 +2,20 @@ from django.db import models
 
 
 class Tag(models.Model):
-    tagname = models.CharField(verbose_name='Содержание тега', max_length=255)  # название тега
+    tagname = models.CharField(verbose_name='Тег', max_length=255)  # название тега
 
     def __str__(self):  # возвращает строковое представление объекта
         return self.tagname
 
+    def get_absolute_url(self):  # возвращает строку, которую можно использовать в HTTP запросе
+        return "/blog/search/%s" % self.tagname
 
 
 class Post(models.Model):
     title = models.CharField(verbose_name='Заголовок поста', max_length=255)  # заголовок поста
     datetime = models.DateTimeField(verbose_name='Дата публикации', auto_now=True)  # дата публикации
     content = models.TextField(verbose_name='Содержание поста', max_length=10000)  # текст поста
-    boundedtag = models.ForeignKey(Tag, to_field=Tag.tagname)  # связанный тег поста, связь много-к-одному
+    # boundedtag = models.ForeignKey(Tag, blank=True, null=True)  # связанный тег поста, связь много-к-одному
 
     def __str__(self):  # возвращает строковое представление объекта
         return self.title
@@ -26,7 +28,7 @@ class Comment(models.Model):
     name = models.CharField(verbose_name='Имя коментирующего', max_length=255)  # имя комментатора
     datetime = models.DateTimeField(verbose_name='Дата комментирования', auto_now=True)  # дата комментирования
     content = models.TextField(verbose_name='Содержание комментария', max_length=1000)  # текст комментария
-    boundedpost = models.ForeignKey(Post, to_field=id(Post))  # связанный тег поста, связь много-к-одному
+    boundedpost = models.ForeignKey(Post, blank=True, null=True)  # комменты привязанные к посту, связь много-к-одному
 
 # Create your models here.
 

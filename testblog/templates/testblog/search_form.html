@@ -1,12 +1,8 @@
 {% extends 'testblog/base.html' %}
 
 {% block content %}
-    <p>{{ search_tag.tagname }}</p>
-    {% for post in post_list %}
-        <p>{{ post.datetime }}</p>
-        <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-        <p>{{ post.content }}</p>
-        <p>{{ post.boundedtag }}</p>
+    {% for tag in tag_list %}
+        <p><a href="{{ tag.get_absolute_url }}">{{ tag.tagname }}</a></p>
         {% empty %}
     {% endfor %}
 {% endblock %}
