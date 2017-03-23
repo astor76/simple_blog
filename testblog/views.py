@@ -1,5 +1,5 @@
 #coding: utf-8
-
+from django.http import Http404
 from django.shortcuts import render
 from testblog.models import Post, Comment, Tag
 from django.views.generic import ListView
@@ -19,16 +19,19 @@ def PostsListView(request):
 # https://docs.djangoproject.com/en/1.10/intro/tutorial03/#a-shortcut-render
 
 
-def post_detail(request):
+def post_detail(request, post_id):
     """
     Вывод одного поста
     """
+    try:
+        selectionpost = Post.objects.get(pk=post_id)
+    except Post.DoesNotExist:
+        raise Http404("Post does not exist")
     ctx = {
-        'title': 'Просмотр поста',
-        'post': Post.objects.filter(Post.id),
-        # 'tag': Post.boundedtag,
-        'comments': Comment.objects.all(),
+        'post': selectionpost,
+        # 'comments': Comment.objects.all(),
         # 'comments': Comment.objects.filter(boundpost=Post),
+        # 'tag': Post.boundedtag,
     }
     return render(request, 'testblog/post_detail.html', ctx)
 

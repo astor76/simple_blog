@@ -3,11 +3,4 @@
     <p>{{ post.datetime }}</p>
     <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
     <p>{{ post.content }}</p>
-    <p>
-        {% for comment in comments %}
-            <p>{{ comment.name }}</p>
-            <p>{{ comment.datetime }}</p>
-            <p>{{ comment.content }}</p>
-        {% endfor %}
-    </p>
 {% endblock %}
