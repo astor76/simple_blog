@@ -34,6 +34,9 @@ ALLOWED_HOSTS = []
 
 SITE_ID = 3
 
+DISQUS_API_KEY = 'qwerty'
+DISQUS_WEBSITE_SHORTNAME = 'asdfgh'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'testblog',
+    'disqus',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_DIRS = (
+    os.path.join(BASE_DIR, 'static')
+)
