@@ -2,17 +2,15 @@
 from django.http import Http404
 from django.shortcuts import render
 from testblog.models import Post, Comment, Tag
-from django.views.generic import ListView
-from django.views.generic import DetailView
 
 
-def PostsListView(request):
+def posts_list_view(request):
     """
     Отображение списка постов
     """
     ctx = {
         'title': 'Список постов',
-        'posts': Post.objects.all(),  # здесь не должно быть post_list ?
+        'post_list': Post.objects.all(),
     }
     return render(request, 'testblog/post_list.html',  ctx)
 # Останется задать данному представлению url правило и готово!
@@ -28,6 +26,7 @@ def post_detail(request, post_id):
     except Post.DoesNotExist:
         raise Http404("Post does not exist")
     ctx = {
+        'title': 'Просмотр поста',
         'post': selectionpost,
         # 'comments': Comment.objects.all(),
         # 'comments': Comment.objects.filter(boundpost=Post),
@@ -47,31 +46,34 @@ def search_form(request):
     return render(request, 'testblog/search_form.html', ctx)
 
 
-def search_result(request):
+def search_result(request, tag_name):
     """
     Страница поисковой выдачи
     """
+    try:
+        selectiontag = Tag.objects.get(tagname=tag_name)
+    except Tag.DoesNotExist:
+        raise Http404("Tag does not exist")
     ctx = {
         'title': 'Поиск постов',
-        'search_tag': Tag,
-        'post_list': Post.objects.all(),
-        # 'post_list': Post.objects.filter(boundedtag=Tag),
+        'search_tag': selectiontag,
+        # 'post_list': Post.objects.all(),
+        'post_list': Post.objects.filter(boundedtag=selectiontag),
     }
     return render(request, 'testblog/search_result.html', ctx)
 
 
-def add_post(request):
+def add_new_post(request):
     """
     Страница добавления нового поста
     """
+    if request.method == 'POST':
+        new_tag = Tag.objects.get_or_create(tagname=request.POST['tagname'])
+        # new_tag = Tag.objects.get_or_create(tagname='добавленныйтег')
+        new_post = Post.objects.create(title=request.POST['title'],
+                                       content=request.POST['content'], boundedtag=new_tag)
+        new_post.save()
+        new_tag.save()
     return render(request, 'testblog/add_post.html')
-
-
-# class PostsListView(ListView):
-#     model = Post
-#
-#
-# class PostsDetailView(DetailView):
-#     model = Post
 
 # Create your views here.

@@ -15,7 +15,7 @@ class Post(models.Model):
     title = models.CharField(verbose_name='Заголовок поста', max_length=255)  # заголовок поста
     datetime = models.DateTimeField(verbose_name='Дата публикации', auto_now=True)  # дата публикации
     content = models.TextField(verbose_name='Содержание поста', max_length=10000)  # текст поста
-    # boundedtag = models.ForeignKey(Tag, blank=True, null=True)  # связанный тег поста, связь много-к-одному
+    boundedtag = models.ForeignKey(Tag, blank=True, null=True)  # связанный тег поста, связь много-к-одному
 
     def __str__(self):  # возвращает строковое представление объекта
         return self.title
